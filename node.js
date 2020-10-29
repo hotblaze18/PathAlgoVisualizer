@@ -6,5 +6,6 @@ export default class Node {
     this.prev = null;
     this.row = row;
     this.col = col;
+    this.canChangeState = true;
   }
 }

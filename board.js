@@ -21,8 +21,8 @@ export default class Board {
     this.destNode = endNode;
     this.mouseHold = false; // holding mouse to drag the walls to block multiple nodes
     this.dragSelected = null; //draging the start or end node into another cell
-    this.currAlgo = null;
-    this.algoDone = false;
+    this.currAlgo = null; // current algo that has been selected
+    this.algoDone = false;  // has the current algo finished?
   }
 
   Initialize = () => {
@@ -138,10 +138,11 @@ export default class Board {
     for (let i = 0; i < nodes.length; i++) {
       // mouse over can either block or unblock a node based on mouseHold
       // Also it can drag start or end node based on dragSelected
-      nodes[i].addEventListener("mouseover", (e) => {
+      nodes[i].addEventListener("mouseenter", (e) => {
         const node = e.target;
         const id = node.getAttribute("id");
 
+        // handle the draging of start and end nodes
         if (board.dragSelected !== null) {
           const prevNode = board.dragSelected;
           const newNode = nodes[i];
@@ -177,7 +178,12 @@ export default class Board {
           }
         }
 
-        if (board.mouseHold === true) {
+        //handle the appearance and disapperance of walls when user is holding mouse.
+        if (board.mouseHold === true && board.nodes[id].canChangeState === true) {
+          board.nodes[id].canChangeState = false;
+          setTimeout(() => {
+            board.nodes[id].canChangeState = true;
+          }, 500);
           if (
             board.nodes[id].status === "unvisited" ||
             board.nodes[id].status === "visited"
@@ -191,6 +197,7 @@ export default class Board {
         }
       });
 
+      
       nodes[i].addEventListener("mousedown", (e) => {
         const node = e.target;
         const id = node.getAttribute("id");
