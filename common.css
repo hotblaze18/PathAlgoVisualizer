@@ -6,7 +6,6 @@
 
 #board {
   position: relative;
-  top: 100px;
   margin: auto;
 }
 table {
@@ -21,8 +20,7 @@ table {
 #start,
 #end {
   position: relative;
-  top: 20%;
-  left: 20%;
+  left: 22%;
 }
 
 .unvisited {

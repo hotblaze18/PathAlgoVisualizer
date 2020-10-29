@@ -3,13 +3,57 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="common.css" />
     <title>Path Algos visualizer</title>
   </head>
   <body>
-    <button id="visualize">Visualize</button>
-    <button id="reset">Reset</button>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-4">
+      <!-- Brand -->
+      <div>
+        <h3 class="text-white py-3">PathAlgo Visualizer</h3>
+      <!-- Links -->
+      <ul class="navbar-nav">
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            Algorithms
+          </a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Breadth First Search(BFS)</a>
+            <a class="dropdown-item" href="#">Depth First Search(DFS)</a>
+            <a class="dropdown-item" href="#">A* Alogorithm</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a id="visualize" class="nav-link" href="#">Visualize</a>
+        </li>
+        <li class="nav-item">
+          <a id="reset" class="nav-link" href="#">Clear And Reset</a>
+        </li>
+      </ul>
+    </div>
+    </nav>
+    <div class="container px-4 py-4">
+      <span class="px-3">
+        <i class="fa fa-arrows"><span class="ml-2">Start Node</span></i>
+      </span>
+      <span class="px-3">
+        <i class="fa fa-times"><span class="ml-2">End Node</span></i>
+      </span>
+      <span class="px-3" style="position:relative;">
+        <span class="wall" style="width:15px;height:15px;display:inline-block"></span>
+        <span style="position:absolute;top:-3px;left: 35px">Wall</span>
+      </span>
+    </div>
     <div id="board"></div>
     <script type="module" src="index.js"></script>
   </body>
