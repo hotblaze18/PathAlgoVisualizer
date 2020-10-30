@@ -5,5 +5,11 @@
   "repository": "git@github.com:hotblaze18/PathAlgoVisualizer.git",
   "author": "pranav <arora.pranav.2000@gmail.com>",
   "license": "MIT",
-  "private": false
+  "private": false,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
