@@ -12,6 +12,9 @@ table {
   margin: auto;
   border-collapse: collapse;
 }
+tr {
+  margin-top: -2px;
+}
 .node {
   display: inline-block;
   outline: 1px solid rgba(241, 156, 191, 0.548);
@@ -90,4 +93,8 @@ table {
     transform: scale(1);
     background-color: rgb(42, 12, 71);
   }
+}
+
+nav span {
+  cursor: pointer;
 }

@@ -16,7 +16,7 @@
     <title>Path Algos visualizer</title>
   </head>
   <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark py-4">
+    <nav id="nav" class="navbar navbar-expand-sm bg-dark navbar-dark py-4">
       <!-- Brand -->
       <div>
         <h3 class="text-white py-3">PathAlgo Visualizer</h3>
@@ -28,21 +28,21 @@
             Algorithms
           </a>
           <div class="dropdown-menu">
-            <a class="dropdown-item" href="#">Breadth First Search(BFS)</a>
-            <a class="dropdown-item" href="#">Depth First Search(DFS)</a>
-            <a class="dropdown-item" href="#">A* Alogorithm</a>
+            <span onclick="window.setAlgo(1)" class="dropdown-item py-2" href="#">Breadth First Search(BFS)</span>
+            <span onclick="window.setAlgo(2)" class="dropdown-item py-2" href="#">Depth First Search(DFS)</span>
+            <span class="dropdown-item py-2" href="#">A* Alogorithm</span>
           </div>
         </li>
         <li class="nav-item">
-          <a id="visualize" class="nav-link" href="#">Visualize</a>
+          <span id="visualize" class="nav-link" href="#">Visualize</span>
         </li>
         <li class="nav-item">
-          <a id="reset" class="nav-link" href="#">Clear And Reset</a>
+          <span id="reset" class="nav-link" href="#">Clear And Reset</span>
         </li>
       </ul>
     </div>
     </nav>
-    <div class="container px-4 py-4">
+    <div id="bullets" class="container px-4 py-4">
       <span class="px-3">
         <i class="fa fa-arrows"><span class="ml-2">Start Node</span></i>
       </span>
