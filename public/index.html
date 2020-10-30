@@ -28,9 +28,11 @@
             Algorithms
           </a>
           <div class="dropdown-menu">
-            <span onclick="window.setAlgo(1)" class="dropdown-item py-2" href="#">Breadth First Search(BFS)</span>
-            <span onclick="window.setAlgo(2)" class="dropdown-item py-2" href="#">Depth First Search(DFS)</span>
-            <span class="dropdown-item py-2" href="#">A* Alogorithm</span>
+            <span onclick="window.setAlgo(1)" class="dropdown-item py-2" href="#">Breadth-first Search</span>
+            <span onclick="window.setAlgo(2)" class="dropdown-item py-2" href="#">Depth-first Search</span>
+            <span class="dropdown-item py-2" href="#">A* Search</span>
+            <span class="dropdown-item py-2" href="#">Dijkstra's Alogorithm</span>
+            <span class="dropdown-item py-2" href="#">Greedy Best-first Search</span>
           </div>
         </li>
         <li class="nav-item">
@@ -42,6 +44,8 @@
       </ul>
     </div>
     </nav>
+
+    <!--Bullets section-->
     <div id="bullets" class="container px-4 py-4">
       <span class="px-3">
         <i class="fa fa-arrows"><span class="ml-2">Start Node</span></i>
@@ -53,8 +57,49 @@
         <span class="wall" style="width:15px;height:15px;display:inline-block"></span>
         <span style="position:absolute;top:-3px;left: 35px">Wall</span>
       </span>
+      <span class="px-3" style="position:relative;left:20px">
+        <span class="visited" style="width:15px;height:15px;display:inline-block"></span>
+        <span style="position:absolute;top:-3px;left: 35px">Visited</span>
+      </span>
+      <span class="px-3" style="position:relative;left:60px">
+        <span class="path" style="width:15px;height:15px;display:inline-block"></span>
+        <span style="position:absolute;top:-3px;left: 35px">Path</span>
+      </span>
     </div>
+
+    <!-- Modal -->
+    <div class="modal" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+        
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Tutorial</h4>
+            <span class="close"></span>
+          </div>
+          
+          <!-- Modal body -->
+          <div class="modal-body py-3">
+            
+          </div>
+          
+          <!-- Modal footer -->
+          <div class="modal-footer" style="justify-content: space-between;">
+              <button id="modalSkipBtn" type="button" class="btn btn-primary mx-2" data-dismiss="modal">Skip Tutorial</button>
+              <div class="p-2">
+                <button id="modalPrevBtn" type="button" class="btn btn-primary mx-2" >Prev</button>
+                <button id="modalNextBtn" type="button" class="btn btn-primary mx-2" >Next</button>
+                <button id="modalFinishBtn" type="button" class="btn btn-primary mx-2" >Finish</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <button id="modalDispBtn" type="button" style="visibility:hidden;position:absolute" data-toggle="modal" data-target="#myModal">
+    </button>    
+    <!-- Board -->
     <div id="board"></div>
+    <script src="modal.js"></script>
     <script type="module" src="index.js"></script>
   </body>
 </html>
