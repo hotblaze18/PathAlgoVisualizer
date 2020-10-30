@@ -1,0 +1,9 @@
+{
+  "name": "PathAlgoVisualizer",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:hotblaze18/PathAlgoVisualizer.git",
+  "author": "pranav <arora.pranav.2000@gmail.com>",
+  "license": "MIT",
+  "private": false
+}
