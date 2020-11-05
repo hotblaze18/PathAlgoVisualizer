@@ -50,10 +50,14 @@ export default class Board {
       row.map((node) => {
         node.dist = Infinity;
         node.prev = null;
-        if (node.status !== "blocked") {
+        if (node.status !== "blocked" && node.weight === 1) {
           document
             .getElementById(node.id)
             .setAttribute("class", "node unvisited");
+        } else if(node.weight > 1) {
+          document
+            .getElementById(node.id)
+            .setAttribute("class", "node weight unvisited");
         }
         if (node.status == "visited") {
           node.status = "unvisited";
@@ -178,20 +182,28 @@ export default class Board {
           }
         }
 
-        //handle the appearance and disapperance of walls when user is holding mouse.
+        //handle the appearance and disapperance of walls and weights when user is holding mouse.
         if (board.mouseHold === true && board.nodes[id].canChangeState === true) {
           board.nodes[id].canChangeState = false;
+          const isChecked = document.getElementById("weightSwitchInput").checked;
           setTimeout(() => {
-            board.nodes[id].canChangeState = true;
+            board.nodes[id].canChangeState = true; //for smooth apperance and dissaperance.
           }, 500);
           if (
             board.nodes[id].status === "unvisited" ||
             board.nodes[id].status === "visited"
           ) {
-            board.nodes[id].status = "blocked";
-            node.setAttribute("class", "node wall");
-          } else if (board.nodes[id].status === "blocked") {
+            if(!isChecked) {
+              board.nodes[id].status = "blocked";
+              node.setAttribute("class", "node wall");
+            } else {
+              board.nodes[id].status = "weighted";
+              board.nodes[id].weight = 15;
+              node.setAttribute("class", "node weight");
+            }
+          } else if (board.nodes[id].status === "blocked" || board.nodes[id].status === "weighted") {
             board.nodes[id].status = "unvisited";
+            board.nodes[id].weight = 1;
             node.setAttribute("class", "node unvisited");
           }
         }
@@ -201,15 +213,23 @@ export default class Board {
       nodes[i].addEventListener("mousedown", (e) => {
         const node = e.target;
         const id = node.getAttribute("id");
+        const isChecked = document.getElementById("weightSwitchInput").checked;
         if (
           board.nodes[id].status === "unvisited" ||
           board.nodes[id].status === "visited"
         ) {
-          board.nodes[id].status = "blocked";
-          node.setAttribute("class", "node wall");
+          if(!isChecked) {
+            board.nodes[id].status = "blocked";
+            node.setAttribute("class", "node wall");
+          } else {
+            board.nodes[id].status = "weighted";
+            board.nodes[id].weight = 15;
+            node.setAttribute("class", "node weight");
+          }
           board.mouseHold = true;
-        } else if (board.nodes[id].status === "blocked") {
+        } else if (board.nodes[id].status === "blocked" || board.nodes[id].status === "weighted") {
           board.nodes[id].status = "unvisited";
+          board.nodes[id].weight = 1;
           node.setAttribute("class", "node unvisited");
           board.mouseHold = true;
         }

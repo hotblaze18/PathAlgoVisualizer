@@ -13,6 +13,11 @@ slides.push(`<h3 class="mx-auto d-block mb-3">Adding Walls</h3>
 <p>Walls can be added by left clicking a node and then dragging it around to add and remove the walls.</p>
 <img src="./imgs/walls.gif" class="p-3" style="display:block;margin:auto;width:60%;height:auto">`);
 
+slides.push(`<h3 class="mx-auto d-block mb-3">Adding Weights</h3>
+<p>You can toggle between weights and walls from menu as shown.Weights can be added in a similar way to the walls</p>
+<p>Each unweighted node has a weight of 1 by default and each weighted node has a weight of 15.</p>
+<img src="./imgs/weights.gif" class="p-3" style="display:block;margin:auto;width:60%;height:auto">`);
+
 slides.push(`<h3 class="mx-auto d-block mb-3">Draging Nodes</h3>
 <p>The Start and the End Nodes can be dragged inorder to change their position.</p>
 <p>Note that you can drag them even after the algorithm has completed to get an instant visual.</p>

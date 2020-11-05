@@ -30,8 +30,9 @@
           <div class="dropdown-menu">
             <span onclick="window.setAlgo(1)" class="dropdown-item py-2" href="#">Breadth-first Search</span>
             <span onclick="window.setAlgo(2)" class="dropdown-item py-2" href="#">Depth-first Search</span>
+            <span onclick="window.setAlgo(3)" class="dropdown-item py-2" href="#">Dijkstra's Algorithm</span>
+            <span onclick="window.setAlgo(4)" class="dropdown-item py-2" href="#">Swarm Search</span>
             <span class="dropdown-item py-2" href="#">A* Search</span>
-            <span class="dropdown-item py-2" href="#">Dijkstra's Alogorithm</span>
             <span class="dropdown-item py-2" href="#">Greedy Best-first Search</span>
           </div>
         </li>
@@ -43,6 +44,13 @@
         </li>
         <li class="nav-item">
           <span id="reset" class="nav-link">Clear And Reset</span>
+        </li>
+        <li style="margin-left: 10px;">
+          <label id="weightSwitch" class="switch">
+            <input id="weightSwitchInput" type="checkbox">
+            <span class="slider round"></span>
+          </label>
+          <span id="switchText" style="position:relative;top:19%;left:5px;color: antiquewhite;">Wall</span>
         </li>
       </ul>
     </div>

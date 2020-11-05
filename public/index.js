@@ -1,9 +1,20 @@
 import Board from "./board.js";
 import BFS from "./algorithms/bfs.js";
 import DFS from "./algorithms/dfs.js";
-
+import Dijkstras from "./algorithms/dijkstras.js";
+import Swarm from "./algorithms/swarm.js";
 
 document.getElementById("modalDispBtn").click();
+
+document.getElementById("weightSwitch").addEventListener("click", (e) => {
+  const isChecked = document.getElementById("weightSwitchInput").checked;
+  const txt = document.getElementById("switchText");
+  if(isChecked) {
+    txt.innerHTML = "Weight"
+  } else {
+    txt.innerHTML = "Wall";
+  }
+})
 
 function InitializeBoard(startNode = null, endNode = null) {
   const height = window.innerHeight - document.getElementById("nav").offsetHeight - document.getElementById("bullets").offsetHeight - document.getElementById("algoDesc").offsetHeight; 
@@ -27,6 +38,14 @@ window.setAlgo = function(algoNo) {
     case 2:
       algo = new DFS(board);
       desc.innerHTML = "Depth-first Search(DFS) is a <b>non-weighted</b> algorithm. It <b>does not gurantee</b> the shortest path."
+      break;
+    case 3:
+      algo = new Dijkstras(board);
+      desc.innerHTML = "Dikstra's algorithm is a <b>weighted</b> algorithm. It <b>gurantees</b> the shortest path."
+      break;
+    case 4:
+      algo = new Swarm(board);
+      desc.innerHTML = "Swarm Search algorithm is a <b>weighted</b> algorithm. It <b>gurantees</b> the shortest path."
       break;
     default:
       algo = new BFS(board);
