@@ -3,6 +3,7 @@ import BFS from "./algorithms/bfs.js";
 import DFS from "./algorithms/dfs.js";
 import Dijkstras from "./algorithms/dijkstras.js";
 import Swarm from "./algorithms/swarm.js";
+import ASTAR from "./algorithms/astar.js";
 
 document.getElementById("modalDispBtn").click();
 
@@ -45,7 +46,11 @@ window.setAlgo = function(algoNo) {
       break;
     case 4:
       algo = new Swarm(board);
-      desc.innerHTML = "Swarm Search algorithm is a <b>weighted</b> algorithm. It <b>gurantees</b> the shortest path."
+      desc.innerHTML = "Swarm Search algorithm is a <b>weighted</b> algorithm. It <b>does not gurantee</b> the shortest path."
+      break;
+    case 5:
+      algo = new ASTAR(board);
+      desc.innerHTML = "A* Search algorithm is a <b>weighted</b> algorithm. It <b>gurantees</b> the shortest path."
       break;
     default:
       algo = new BFS(board);
@@ -64,9 +69,13 @@ function visualize() {
 document.getElementById("visualize").addEventListener("click", visualize);
 
 document.getElementById("clear").addEventListener("click", () => {
+  board.algoDone = false;
   board.clearVisitedAndDistance();
 })
 
 document.getElementById("reset").addEventListener("click", () => {
+  algo = null;
+  const desc = document.getElementById("algo-description");
+  desc.innerHTML = "";
   board.reInitialize();
 });
